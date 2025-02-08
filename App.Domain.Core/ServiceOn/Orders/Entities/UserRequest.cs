@@ -20,7 +20,10 @@ namespace App.Domain.Core.ServiceOn.Orders.Entities
 
         public StatusEnum Status { get; set; }
 
-        public User.Entities.User ServiceProvider { get; set; }
+        public User.Entities.User Dower { get; set; }
+        public int DowerId { get; set; }
+
+        public List<User.Entities.User> ServiceProviders { get; set; }
         public int ServiceProviderId { get; set; }
 
         public User.Entities.User Costomer { get; set; }
