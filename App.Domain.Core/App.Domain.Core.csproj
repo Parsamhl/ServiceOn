@@ -1,0 +1,34 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="FinalProject\ContactInfo\AppService\" />
+    <Folder Include="FinalProject\ContactInfo\Dtos\" />
+    <Folder Include="FinalProject\ContactInfo\Data\" />
+    <Folder Include="FinalProject\ContactInfo\Service\" />
+    <Folder Include="FinalProject\Costomer\AppService\" />
+    <Folder Include="FinalProject\Costomer\Dtos\" />
+    <Folder Include="FinalProject\Costomer\Enums\" />
+    <Folder Include="FinalProject\Costomer\Data\" />
+    <Folder Include="FinalProject\Costomer\Services\" />
+    <Folder Include="FinalProject\Oreders\AppService\" />
+    <Folder Include="FinalProject\Oreders\Data\" />
+    <Folder Include="FinalProject\Oreders\Dtos\" />
+    <Folder Include="FinalProject\Oreders\Service\" />
+    <Folder Include="FinalProject\Provider\Data\" />
+    <Folder Include="FinalProject\Provider\AppService\" />
+    <Folder Include="FinalProject\Provider\Dtos\" />
+    <Folder Include="FinalProject\Provider\Enums\" />
+    <Folder Include="FinalProject\Provider\Service\" />
+    <Folder Include="FinalProject\Service\AppService\" />
+    <Folder Include="FinalProject\Service\Dtos\" />
+    <Folder Include="FinalProject\Service\Data\" />
+    <Folder Include="FinalProject\Service\Service\" />
+  </ItemGroup>
+
+</Project>
