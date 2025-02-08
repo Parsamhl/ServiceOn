@@ -7,28 +7,23 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="FinalProject\ContactInfo\AppService\" />
-    <Folder Include="FinalProject\ContactInfo\Dtos\" />
-    <Folder Include="FinalProject\ContactInfo\Data\" />
-    <Folder Include="FinalProject\ContactInfo\Service\" />
-    <Folder Include="FinalProject\Costomer\AppService\" />
-    <Folder Include="FinalProject\Costomer\Dtos\" />
-    <Folder Include="FinalProject\Costomer\Enums\" />
-    <Folder Include="FinalProject\Costomer\Data\" />
-    <Folder Include="FinalProject\Costomer\Services\" />
-    <Folder Include="FinalProject\Oreders\AppService\" />
-    <Folder Include="FinalProject\Oreders\Data\" />
-    <Folder Include="FinalProject\Oreders\Dtos\" />
-    <Folder Include="FinalProject\Oreders\Service\" />
-    <Folder Include="FinalProject\Provider\Data\" />
-    <Folder Include="FinalProject\Provider\AppService\" />
-    <Folder Include="FinalProject\Provider\Dtos\" />
-    <Folder Include="FinalProject\Provider\Enums\" />
-    <Folder Include="FinalProject\Provider\Service\" />
-    <Folder Include="FinalProject\Service\AppService\" />
-    <Folder Include="FinalProject\Service\Dtos\" />
-    <Folder Include="FinalProject\Service\Data\" />
-    <Folder Include="FinalProject\Service\Service\" />
+    <Folder Include="ServiceOn\Category\Data\" />
+    <Folder Include="ServiceOn\Category\AppService\" />
+    <Folder Include="ServiceOn\Category\Service\" />
+    <Folder Include="ServiceOn\ContactInfo\" />
+    <Folder Include="ServiceOn\Orders\AppService\" />
+    <Folder Include="ServiceOn\Orders\Data\" />
+    <Folder Include="ServiceOn\Orders\Dtos\" />
+    <Folder Include="ServiceOn\Orders\Service\" />
+    <Folder Include="ServiceOn\User\AppService\" />
+    <Folder Include="ServiceOn\User\Data\" />
+    <Folder Include="ServiceOn\User\Enums\" />
+    <Folder Include="ServiceOn\User\Service\" />
+    <Folder Include="ServiceOn\Wallet\Data\" />
+    <Folder Include="ServiceOn\Wallet\Dtos\" />
+    <Folder Include="ServiceOn\Wallet\Enums\" />
+    <Folder Include="ServiceOn\Wallet\AppService\" />
+    <Folder Include="ServiceOn\Wallet\Service\" />
   </ItemGroup>
 
 </Project>
