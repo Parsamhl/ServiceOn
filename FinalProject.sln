@@ -31,6 +31,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "App.Infra.Repository.Ef", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "App.Infra.Db.SqlServer", "App.Infra.Db.SqlServer\App.Infra.Db.SqlServer.csproj", "{3CF17554-5CF5-4CE3-88AF-F77E90417525}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServiceOn", "ServiceOn\ServiceOn.csproj", "{7A96B07E-8DE6-4E77-88D0-108872623ADC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -49,6 +51,10 @@ Global
 		{3CF17554-5CF5-4CE3-88AF-F77E90417525}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3CF17554-5CF5-4CE3-88AF-F77E90417525}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3CF17554-5CF5-4CE3-88AF-F77E90417525}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7A96B07E-8DE6-4E77-88D0-108872623ADC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7A96B07E-8DE6-4E77-88D0-108872623ADC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7A96B07E-8DE6-4E77-88D0-108872623ADC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7A96B07E-8DE6-4E77-88D0-108872623ADC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -67,6 +73,7 @@ Global
 		{70162F21-032A-4E1F-BADE-F56BEA22339D} = {471212D3-6CC4-4068-AA79-EFC3A7E6D96A}
 		{9A2DD970-7C9F-4B6B-BC04-66BEFFC43205} = {3DC4EAA4-BC8E-41EF-9A69-29B65B06720E}
 		{3CF17554-5CF5-4CE3-88AF-F77E90417525} = {714C9B97-89F0-4AEF-AE49-7694C3FDD137}
+		{7A96B07E-8DE6-4E77-88D0-108872623ADC} = {2D852E0B-1A8B-45CD-BA64-B50E654AF5BD}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {409924A9-DA29-48D3-862D-2AD1CC449F80}
