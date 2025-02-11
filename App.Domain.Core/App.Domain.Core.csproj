@@ -19,11 +19,6 @@
     <Folder Include="ServiceOn\User\Data\" />
     <Folder Include="ServiceOn\User\Enums\" />
     <Folder Include="ServiceOn\User\Service\" />
-    <Folder Include="ServiceOn\Wallet\Data\" />
-    <Folder Include="ServiceOn\Wallet\Dtos\" />
-    <Folder Include="ServiceOn\Wallet\Enums\" />
-    <Folder Include="ServiceOn\Wallet\AppService\" />
-    <Folder Include="ServiceOn\Wallet\Service\" />
   </ItemGroup>
 
 </Project>

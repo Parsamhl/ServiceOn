@@ -1,4 +1,5 @@
-﻿using App.Domain.Core.ServiceOn.Wallet.Entities;
+﻿using App.Domain.Core.ServiceOn.Orders.Entities;
+using App.Domain.Core.ServiceOn.Wallet.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,13 +17,10 @@ namespace App.Domain.Core.ServiceOn.User.Entities
         public string UserName { get; set; }
         public string Password { get; set; }
         public int Role { get; set; }  // => 1 = Costomer , 2 = ServiceProvider , 3 = Admin
+        public float WalletAmount { get; set; }
 
-
-        public int WalletId { get; set; }
-        public Wallet.Entities.Wallet Wallet { get; set; }
-
-      
-        public int ServiceVategoryId { get; set; }
+        public List<UserRequest> UserRequests { get; set; }
+        public int ServiceCategoryId { get; set; }
         public List<Category.Entities.ServicesCategory> Services { get; set; }
     }
 }

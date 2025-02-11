@@ -12,5 +12,7 @@ namespace App.Domain.Core.ServiceOn.Category.Entities
         public string Name { get; set; }    
         
 
+        public List<ServicesCategory> SubCategory { get; set; }
+
     }
 }

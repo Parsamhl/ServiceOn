@@ -9,7 +9,20 @@ namespace App.Infra.Configuration.EF.Configurations
     {
         public void Configure(EntityTypeBuilder<User> builder)
         {
-            throw new NotImplementedException();
+            builder.ToTable("Users");
+            builder.HasKey(x => x.Id);
+
+            builder.HasOne(x => x.Wallet)
+                .WithOne(x => x.User);
+
+            builder.HasMany(x => x.Services)  // title that user hold as profassion
+                .WithMany(x => x.Providers); /// list of  users who doing Services
+
+            
+
+            
+                
+                
         }
     }
 }

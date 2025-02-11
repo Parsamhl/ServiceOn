@@ -12,6 +12,10 @@ namespace App.Domain.Core.ServiceOn.Category.Entities
         public int ServiceCategoryId { get; set; }
         public string Name { get; set; }
 
+        public Category Category { get; set; }
+
+        public List<User.Entities.User> Providers { get; set; }
+
 
     }
 }
