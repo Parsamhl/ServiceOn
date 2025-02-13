@@ -16,12 +16,10 @@
     <Folder Include="ServiceOn\FeedBack\AppService\" />
     <Folder Include="ServiceOn\FeedBack\Service\" />
     <Folder Include="ServiceOn\Orders\AppService\" />
-    <Folder Include="ServiceOn\Orders\Data\" />
     <Folder Include="ServiceOn\Orders\Dtos\" />
     <Folder Include="ServiceOn\Orders\Enums\" />
     <Folder Include="ServiceOn\Orders\Service\" />
     <Folder Include="ServiceOn\User\AppService\" />
-    <Folder Include="ServiceOn\User\Data\" />
     <Folder Include="ServiceOn\User\Enums\" />
     <Folder Include="ServiceOn\User\Service\" />
   </ItemGroup>
