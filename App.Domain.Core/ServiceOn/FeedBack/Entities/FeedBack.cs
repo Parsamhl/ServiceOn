@@ -1,4 +1,5 @@
-﻿using App.Domain.Core.ServiceOn.User.Entities;
+﻿using App.Domain.Core.ServiceOn.FeedBack.Enums;
+using App.Domain.Core.ServiceOn.User.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,6 +14,7 @@ namespace App.Domain.Core.ServiceOn.FeedBack.Entities
 
         public string Title { get; set; }
         public string Description { get; set; } 
+        public StatusEnum FeedBackStatus { get; set; } = StatusEnum.waiting;
 
         public float Rate { get; set; }
         // expert whoe rated by this 

@@ -9,6 +9,7 @@ using App.Infra.Db.SqlServer.Configuration.CategoryConfiguration;
 using App.Infra.Db.SqlServer.Configuration.CostomerConfiguration;
 using App.Infra.Db.SqlServer.Configuration.ExpertConfiguration.cs;
 using App.Infra.Db.SqlServer.Configuration.FeedBackConfiguration;
+using App.Infra.Db.SqlServer.Configuration.OperatorConfiguration;
 using App.Infra.Db.SqlServer.Configuration.SubCategoryConfiguration;
 using Microsoft.EntityFrameworkCore;
 
@@ -32,6 +33,7 @@ namespace App.Infra.Db.SqlServer.SqlServerDb
             modelBuilder.ApplyConfiguration(new AddressConfiguration());
             modelBuilder.ApplyConfiguration(new FeedBackConfiguration());   
             modelBuilder.ApplyConfiguration(new SubCategoryConfiguration());
+            modelBuilder.ApplyConfiguration(new OperatorConfiguration());
 
             base.OnModelCreating(modelBuilder);
 
@@ -39,10 +41,12 @@ namespace App.Infra.Db.SqlServer.SqlServerDb
 
         public DbSet<Expert> Experts { get; set; }
         public DbSet<Costomer> Costomers { get; set; }
+        public DbSet<Operator> Operators { get; set; }
         public DbSet<Categories> Categories { get; set; }
         public DbSet<SubCategories> SubCategories { get; set; }
         public DbSet<Address> Address { get; set; }
         public DbSet<AllService> AllService { get; set; }
         public DbSet<FeedBack> FeedBacks { get; set; }
+
     }
 }
