@@ -11,7 +11,6 @@ namespace App.Domain.Core.ServiceOn.FeedBack.Entities
     public class FeedBack
     {
         public int FeedBackId { get; set; }
-
         public string Title { get; set; }
         public string Description { get; set; } 
         public StatusEnum FeedBackStatus { get; set; } = StatusEnum.waiting;

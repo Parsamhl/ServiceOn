@@ -1,12 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace App.Domain.Core.ServiceOn.Orders.Data.Repository
+﻿namespace App.Domain.Core.ServiceOn.Orders.Data.Repository
 {
     public interface ICostomerRequestRepository
     {
+
+        void Add(Entities.CostomerRequest costomerRequest);
+        void Delete(Entities.CostomerRequest costomerRequest);
+        List<Entities.CostomerRequest> GetAll();
+
+
     }
 }
