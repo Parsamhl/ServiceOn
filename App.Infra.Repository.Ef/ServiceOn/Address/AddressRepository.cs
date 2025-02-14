@@ -9,5 +9,14 @@ namespace App.Infra.Repository.Ef.ServiceOn.Address
 {
     public class AddressRepository : IAddressRepository
     {
+        public void Add(Domain.Core.ServiceOn.Address.Entities.Address address)
+        {
+           
+        }
+
+        public void Delete(Domain.Core.ServiceOn.Address.Entities.Address address)
+        {
+            
+        }
     }
 }
