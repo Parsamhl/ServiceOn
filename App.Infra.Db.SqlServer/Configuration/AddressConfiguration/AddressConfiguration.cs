@@ -10,13 +10,13 @@ namespace App.Infra.Db.SqlServer.Configuration.AddressConfiguration
         public void Configure(EntityTypeBuilder<Address> builder)
         {
             builder.ToTable("Address");
-            builder.HasKey(x=> x.Id);
+            builder.HasKey(x => x.Id);
 
             builder.HasMany(x => x.Costomer)
                 .WithOne(x => x.Address)
                 .HasForeignKey(x => x.AddressId).OnDelete(DeleteBehavior.Cascade);
 
-            builder.HasMany(x=> x.Expert)
+            builder.HasMany(x => x.Expert)
                 .WithOne(x => x.Address)
                 .HasForeignKey(x => x.AddressId).OnDelete(DeleteBehavior.Restrict);
 
@@ -27,6 +27,20 @@ namespace App.Infra.Db.SqlServer.Configuration.AddressConfiguration
             builder.HasMany(x => x.expertRequests)
                 .WithOne(x => x.RequestAdderss)
                 .HasForeignKey(x => x.AddressId).OnDelete(DeleteBehavior.Restrict);
+
+            #region Seed Data
+
+            builder.HasData(new List<Address>()
+            {
+
+                new Address() {Id = 1,City = "Tehran" , },
+                new Address() { Id = 2, City = "Karaj"  },
+                new Address() {Id =3 , City = "Arak"  }
+
+
+            });
+
+            #endregion
         }
     }
 }

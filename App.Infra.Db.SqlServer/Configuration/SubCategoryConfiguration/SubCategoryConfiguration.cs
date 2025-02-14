@@ -11,15 +11,20 @@ namespace App.Infra.Db.SqlServer.Configuration.SubCategoryConfiguration
         public void Configure(EntityTypeBuilder<SubCategories> builder)
         {
             builder.ToTable("SubCategories");
-            builder.HasKey(x=> x.SubCategoryId);
+            builder.HasKey(x => x.SubCategoryId);
 
             //builder.HasOne(x=> x.Categories).
             //    WithMany(x=> x.SubCategories)
             //   .HasForeignKey(x=>x.SubCategoryId);
 
-            builder.HasMany(x=> x.experts)
-                .WithOne(x=> x.Abilities)
-                .HasForeignKey(x=> x.AbilityId);
+            builder.HasMany(x => x.experts)
+                .WithOne(x => x.Abilities)
+                .HasForeignKey(x => x.AbilityId);
+
+            builder.HasData(new List<SubCategories>
+            {
+                new SubCategories(){ SubCategoryName = "nmidonm"}
+            });
         }
     }
 }

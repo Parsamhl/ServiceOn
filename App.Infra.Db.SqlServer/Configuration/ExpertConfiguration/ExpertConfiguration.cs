@@ -24,11 +24,19 @@ namespace App.Infra.Db.SqlServer.Configuration.ExpertConfiguration.cs
                 .WithOne(x => x.Expert)
                 .HasForeignKey(x => x.ExpertId);
 
-           //builder.HasOne(x=> x.Abilities)   // service that expert provide
-           //     .WithMany(x=> x.experts)
-           //     .HasForeignKey(x=>x.AbilityId);
+            //builder.HasOne(x=> x.Abilities)   // service that expert provide
+            //     .WithMany(x=> x.experts)
+            //     .HasForeignKey(x=>x.AbilityId);
 
-            
+            #region Seed Data 
+
+            builder.HasData(new List<Expert>()
+            {
+                new Expert(){ ExpertId = 1 ,Name = "Parsa" , LastName = "Mousavi" , Age = 20  ,  AddressId = 1 , Balance = 800 , AbilityId = 2}
+
+
+            });
+            #endregion
         }
     }
 }

@@ -10,7 +10,12 @@ namespace App.Infra.Db.SqlServer.Configuration.FeedBackConfiguration
         public void Configure(EntityTypeBuilder<FeedBack> builder)
         {
             builder.ToTable("FeedBacks");
-            builder.HasKey(x=> x.FeedBackId);
+            builder.HasKey(x => x.FeedBackId);
+
+            builder.HasData(new List<FeedBack>()
+            {
+                
+            });
         }
     }
 }

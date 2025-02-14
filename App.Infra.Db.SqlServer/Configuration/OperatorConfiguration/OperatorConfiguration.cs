@@ -11,6 +11,14 @@ namespace App.Infra.Db.SqlServer.Configuration.OperatorConfiguration
         {
             builder.ToTable("Operators");
             builder.HasKey(x=> x.OperatorId);
+
+            builder.HasData(new List<Operator>()
+            {
+
+                new Operator () {Name = " Reza " , LastName = " Karami" , UserName = "RezaKarami1234" , Password = " R12345678"}
+                , new Operator() {Name = "Gholam" , LastName = " Masoumi" , UserName = " gholamM12" , Password = "MasoumiGh"}
+
+            });
         }
     }
 }
