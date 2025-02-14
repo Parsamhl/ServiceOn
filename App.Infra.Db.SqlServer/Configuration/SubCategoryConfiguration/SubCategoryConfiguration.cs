@@ -21,10 +21,10 @@ namespace App.Infra.Db.SqlServer.Configuration.SubCategoryConfiguration
                 .WithOne(x => x.Abilities)
                 .HasForeignKey(x => x.AbilityId);
 
-            builder.HasData(new List<SubCategories>
-            {
-                new SubCategories(){ SubCategoryName = "nmidonm"}
-            });
+            //builder.HasData(new List<SubCategories>
+            //{
+               
+            //});
         }
     }
 }

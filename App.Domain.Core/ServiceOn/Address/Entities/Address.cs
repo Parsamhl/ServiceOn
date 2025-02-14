@@ -11,12 +11,12 @@ namespace App.Domain.Core.ServiceOn.Address.Entities
 
         public string City { get; set; }
 
-        public List <User.Entities.Costomer> Costomer { get; set; }
-        public string CostomerId { get; set; }
-        public List <User.Entities.Expert> Expert { get; set; }
+        public List <User.Entities.Costomer>? Costomer { get; set; }
+        public string? CostomerId { get; set; }
+        public List <User.Entities.Expert>? Expert { get; set; }
 
-        public List<CostomerRequest> costomerRequests { get; set; }
+        public List<CostomerRequest>? costomerRequests { get; set; }
 
-        public List<ExpertRequest > expertRequests { get; set; }
+        public List<ExpertRequest>? expertRequests { get; set; }
     }
 }

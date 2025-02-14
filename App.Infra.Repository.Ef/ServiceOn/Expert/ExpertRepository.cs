@@ -21,7 +21,7 @@ namespace App.Infra.Repository.Ef.ServiceOn.Expert
 
         public float DepositBalance(int id, float amount)
         {
-            var expert = _context.Experts.FirstOrDefault(x => x.ExpertId == id);
+            var expert = _context.Experts.FirstOrDefault(x => x.Id == id);
             if (expert == null)
             {
 
@@ -40,13 +40,13 @@ namespace App.Infra.Repository.Ef.ServiceOn.Expert
 
         public Domain.Core.ServiceOn.User.Entities.Expert GetExpert(int id)
 
-            => _context.Experts.FirstOrDefault(x => x.ExpertId == id);
+            => _context.Experts.FirstOrDefault(x => x.Id == id);
             
         
 
         public float WithrawBalance(int id, float amount)
         {
-            var expert = _context.Experts.FirstOrDefault(x => x.ExpertId == id);
+            var expert = _context.Experts.FirstOrDefault(x => x.Id == id);
             if (expert == null)
             {
 

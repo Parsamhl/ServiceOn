@@ -25,7 +25,7 @@ namespace App.Infra.Repository.Ef.ServiceOn.Costomer
 
         public float DepositBalance(int id, float amount)
         {
-            var Costomer = _context.Costomers.FirstOrDefault(x => x.CostomerId == id);
+            var Costomer = _context.Costomers.FirstOrDefault(x => x.Id == id);
             if (Costomer == null)
             {
                 throw new Exception("User Not Found");
@@ -46,12 +46,12 @@ namespace App.Infra.Repository.Ef.ServiceOn.Costomer
 
         public Domain.Core.ServiceOn.User.Entities.Costomer GetCostomer(int id)
 
-            => _context.Costomers.FirstOrDefault(x => x.CostomerId == id);
+            => _context.Costomers.FirstOrDefault(x => x.Id == id);
         
 
         public float WithrawBalance(int id, float amount)
         {
-            var Costomer = _context.Costomers.FirstOrDefault(x => x.CostomerId == id);
+            var Costomer = _context.Costomers.FirstOrDefault(x => x.Id == id);
             if (Costomer == null)
             {
                 throw new Exception("User Not Found");

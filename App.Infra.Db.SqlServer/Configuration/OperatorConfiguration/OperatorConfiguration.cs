@@ -15,8 +15,8 @@ namespace App.Infra.Db.SqlServer.Configuration.OperatorConfiguration
             builder.HasData(new List<Operator>()
             {
 
-                new Operator () {Name = " Reza " , LastName = " Karami" , UserName = "RezaKarami1234" , Password = " R12345678"}
-                , new Operator() {Name = "Gholam" , LastName = " Masoumi" , UserName = " gholamM12" , Password = "MasoumiGh"}
+                new Operator () {OperatorId = 1 ,Name = " Reza " , LastName = " Karami" , UserName = "RezaKarami1234" , Password = " R12345678"}
+                , new Operator() {OperatorId = 2 ,Name = "Gholam" , LastName = " Masoumi" , UserName = " gholamM12" , Password = "MasoumiGh"}
 
             });
         }

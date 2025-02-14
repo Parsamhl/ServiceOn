@@ -14,12 +14,12 @@ namespace App.Domain.Core.ServiceOn.Category.Entities
         public string CategoryName { get; set; }
 
         // daste bandi khedmati ke category zir majmoe an ast
-        public AllService.Entities.AllService AllService { get; set; }
-        public int MainSerivceId { get; set; }
+        public AllService.Entities.AllService? AllService { get; set; }
+        public int? MainSerivceId { get; set; }
 
 
         // zir majmoe haye har ye k az category ha 
-        public List<SubCategories> SubCategories { get; set; }
+        public List<SubCategories>? SubCategories { get; set; }
         
     }
 }

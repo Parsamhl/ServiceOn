@@ -12,9 +12,9 @@ namespace App.Domain.Core.ServiceOn.Category.Entities
 
         public int SubCategoryId { get; set; }   
         public  string SubCategoryName { get; set; }
-        public List<Expert> experts { get; set; }
-        public Categories Categories { get; set; }
-        public int CategoryId { get; set; } 
+        public List<Expert>? experts { get; set; }
+        public Categories? Categories { get; set; }
+        public int? CategoryId { get; set; } 
         
     }
 }

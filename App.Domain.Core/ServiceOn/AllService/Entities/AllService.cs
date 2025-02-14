@@ -8,7 +8,7 @@ namespace App.Domain.Core.ServiceOn.AllService.Entities
 
         public string Title { get; set; }
 
-        public List<Categories> Categories { get; set; }
+        public List<Categories>? Categories { get; set; }
 
 
 

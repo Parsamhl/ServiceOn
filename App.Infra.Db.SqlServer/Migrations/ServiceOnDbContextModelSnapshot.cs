@@ -35,12 +35,29 @@ namespace App.Infra.Db.SqlServer.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("CostomerId")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
                     b.ToTable("Address", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            City = "Tehran"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            City = "Karaj"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            City = "Arak",
+                            CostomerId = "1"
+                        });
                 });
 
             modelBuilder.Entity("App.Domain.Core.ServiceOn.AllService.Entities.AllService", b =>
@@ -58,6 +75,53 @@ namespace App.Infra.Db.SqlServer.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("AllService", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Title = "Home Service "
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Title = "Car Service"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Title = "Office Service"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Title = "Baby sitting"
+                        });
+                });
+
+            modelBuilder.Entity("App.Domain.Core.ServiceOn.Base.Entities.Image", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("CostomerRequestId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Path")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("RequestId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CostomerRequestId");
+
+                    b.ToTable("Images");
                 });
 
             modelBuilder.Entity("App.Domain.Core.ServiceOn.Category.Entities.Categories", b =>
@@ -72,7 +136,7 @@ namespace App.Infra.Db.SqlServer.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("MainSerivceId")
+                    b.Property<int?>("MainSerivceId")
                         .HasColumnType("int");
 
                     b.HasKey("CategoryId");
@@ -80,6 +144,28 @@ namespace App.Infra.Db.SqlServer.Migrations
                     b.HasIndex("MainSerivceId");
 
                     b.ToTable("Categories", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            CategoryId = 1,
+                            CategoryName = "Cleaning"
+                        },
+                        new
+                        {
+                            CategoryId = 2,
+                            CategoryName = "Design"
+                        },
+                        new
+                        {
+                            CategoryId = 3,
+                            CategoryName = "Documentation"
+                        },
+                        new
+                        {
+                            CategoryId = 4,
+                            CategoryName = "Baby sitter"
+                        });
                 });
 
             modelBuilder.Entity("App.Domain.Core.ServiceOn.Category.Entities.SubCategories", b =>
@@ -90,7 +176,7 @@ namespace App.Infra.Db.SqlServer.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("SubCategoryId"));
 
-                    b.Property<int>("CategoryId")
+                    b.Property<int?>("CategoryId")
                         .HasColumnType("int");
 
                     b.Property<string>("SubCategoryName")
@@ -112,27 +198,28 @@ namespace App.Infra.Db.SqlServer.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("FeedBackId"));
 
-                    b.Property<int>("CostomerId")
+                    b.Property<int?>("CostomerId")
                         .HasColumnType("int");
 
                     b.Property<string>("Description")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("ExpertId")
+                    b.Property<int?>("ExpertId")
                         .HasColumnType("int");
 
-                    b.Property<int>("FeedBackStatus")
+                    b.Property<int?>("FeedBackStatus")
                         .HasColumnType("int");
 
                     b.Property<int?>("OperatorId")
                         .HasColumnType("int");
 
-                    b.Property<float>("Rate")
+                    b.Property<float?>("Rate")
                         .HasColumnType("real");
 
+                    b.Property<DateOnly>("SubmitedAt")
+                        .HasColumnType("date");
+
                     b.Property<string>("Title")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("FeedBackId");
@@ -154,27 +241,28 @@ namespace App.Infra.Db.SqlServer.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int>("AddressId")
+                    b.Property<int?>("AddressId")
                         .HasColumnType("int");
 
-                    b.Property<int>("CostomerId")
+                    b.Property<int?>("CostomerId")
                         .HasColumnType("int");
 
                     b.Property<string>("Description")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("DueTime")
+                    b.Property<DateTime?>("DueTime")
                         .HasColumnType("datetime2");
+
+                    b.Property<int?>("ExpertId")
+                        .HasColumnType("int");
 
                     b.Property<int?>("OperatorId")
                         .HasColumnType("int");
 
                     b.Property<string>("Title")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("price")
+                    b.Property<int?>("price")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
@@ -183,9 +271,11 @@ namespace App.Infra.Db.SqlServer.Migrations
 
                     b.HasIndex("CostomerId");
 
+                    b.HasIndex("ExpertId");
+
                     b.HasIndex("OperatorId");
 
-                    b.ToTable("CostomerRequest");
+                    b.ToTable("CostomerRequests");
                 });
 
             modelBuilder.Entity("App.Domain.Core.ServiceOn.Orders.Entities.ExpertRequest", b =>
@@ -196,32 +286,35 @@ namespace App.Infra.Db.SqlServer.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int>("AddressId")
+                    b.Property<int?>("AddressId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("CostomerRequestId")
                         .HasColumnType("int");
 
                     b.Property<string>("Description")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("DueTime")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("ExpertId")
+                    b.Property<int?>("ExpertId")
                         .HasColumnType("int");
 
                     b.Property<int?>("OperatorId")
                         .HasColumnType("int");
 
                     b.Property<string>("Title")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("price")
+                    b.Property<int?>("price")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
                     b.HasIndex("AddressId");
+
+                    b.HasIndex("CostomerRequestId");
 
                     b.HasIndex("ExpertId");
 
@@ -232,13 +325,13 @@ namespace App.Infra.Db.SqlServer.Migrations
 
             modelBuilder.Entity("App.Domain.Core.ServiceOn.User.Entities.Costomer", b =>
                 {
-                    b.Property<int>("CostomerId")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CostomerId"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int>("AddressId")
+                    b.Property<int?>("AddressId")
                         .HasColumnType("int");
 
                     b.Property<int>("Age")
@@ -263,25 +356,49 @@ namespace App.Infra.Db.SqlServer.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("CostomerId");
+                    b.HasKey("Id");
 
                     b.HasIndex("AddressId");
 
                     b.ToTable("Costomers", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            AddressId = 1,
+                            Age = 26,
+                            Balance = 260,
+                            LastName = "Mohammadi",
+                            Name = " ALi",
+                            Password = "ali1350.",
+                            UserName = "Ali1350"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            AddressId = 1,
+                            Age = 20,
+                            Balance = 50,
+                            LastName = "Farahi",
+                            Name = "Keyvan",
+                            Password = "258976",
+                            UserName = "K1farahi"
+                        });
                 });
 
             modelBuilder.Entity("App.Domain.Core.ServiceOn.User.Entities.Expert", b =>
                 {
-                    b.Property<int>("ExpertId")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ExpertId"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int>("AbilityId")
+                    b.Property<int?>("AbilityId")
                         .HasColumnType("int");
 
-                    b.Property<int>("AddressId")
+                    b.Property<int?>("AddressId")
                         .HasColumnType("int");
 
                     b.Property<int>("Age")
@@ -298,16 +415,38 @@ namespace App.Infra.Db.SqlServer.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Password")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<float>("Rate")
                         .HasColumnType("real");
 
-                    b.HasKey("ExpertId");
+                    b.Property<string>("UserName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
 
                     b.HasIndex("AbilityId");
 
                     b.HasIndex("AddressId");
 
                     b.ToTable("Experts", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            AddressId = 1,
+                            Age = 20,
+                            Balance = 800,
+                            LastName = "Mousavi",
+                            Name = "Parsa",
+                            Password = " parsa1383",
+                            Rate = 0f,
+                            UserName = "parsa_mhl"
+                        });
                 });
 
             modelBuilder.Entity("App.Domain.Core.ServiceOn.User.Entities.Operator", b =>
@@ -337,21 +476,35 @@ namespace App.Infra.Db.SqlServer.Migrations
                     b.HasKey("OperatorId");
 
                     b.ToTable("Operators", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            OperatorId = 1,
+                            LastName = " Karami",
+                            Name = " Reza ",
+                            Password = " R12345678",
+                            UserName = "RezaKarami1234"
+                        },
+                        new
+                        {
+                            OperatorId = 2,
+                            LastName = " Masoumi",
+                            Name = "Gholam",
+                            Password = "MasoumiGh",
+                            UserName = " gholamM12"
+                        });
                 });
 
-            modelBuilder.Entity("CostomerRequestExpert", b =>
+            modelBuilder.Entity("App.Domain.Core.ServiceOn.Base.Entities.Image", b =>
                 {
-                    b.Property<int>("CostomerRequestsId")
-                        .HasColumnType("int");
+                    b.HasOne("App.Domain.Core.ServiceOn.Orders.Entities.CostomerRequest", "CostomerRequest")
+                        .WithMany("Images")
+                        .HasForeignKey("CostomerRequestId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
-                    b.Property<int>("ExpertId")
-                        .HasColumnType("int");
-
-                    b.HasKey("CostomerRequestsId", "ExpertId");
-
-                    b.HasIndex("ExpertId");
-
-                    b.ToTable("CostomerRequestExpert");
+                    b.Navigation("CostomerRequest");
                 });
 
             modelBuilder.Entity("App.Domain.Core.ServiceOn.Category.Entities.Categories", b =>
@@ -359,8 +512,7 @@ namespace App.Infra.Db.SqlServer.Migrations
                     b.HasOne("App.Domain.Core.ServiceOn.AllService.Entities.AllService", "AllService")
                         .WithMany("Categories")
                         .HasForeignKey("MainSerivceId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
+                        .OnDelete(DeleteBehavior.Restrict);
 
                     b.Navigation("AllService");
                 });
@@ -370,8 +522,7 @@ namespace App.Infra.Db.SqlServer.Migrations
                     b.HasOne("App.Domain.Core.ServiceOn.Category.Entities.Categories", "Categories")
                         .WithMany("SubCategories")
                         .HasForeignKey("CategoryId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
+                        .OnDelete(DeleteBehavior.Restrict);
 
                     b.Navigation("Categories");
                 });
@@ -380,15 +531,12 @@ namespace App.Infra.Db.SqlServer.Migrations
                 {
                     b.HasOne("App.Domain.Core.ServiceOn.User.Entities.Costomer", "Costomer")
                         .WithMany("feedBacks")
-                        .HasForeignKey("CostomerId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("CostomerId");
 
                     b.HasOne("App.Domain.Core.ServiceOn.User.Entities.Expert", "Expert")
                         .WithMany("feedBacks")
                         .HasForeignKey("ExpertId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .OnDelete(DeleteBehavior.Restrict);
 
                     b.HasOne("App.Domain.Core.ServiceOn.User.Entities.Operator", null)
                         .WithMany("FeedBacks")
@@ -404,18 +552,23 @@ namespace App.Infra.Db.SqlServer.Migrations
                     b.HasOne("App.Domain.Core.ServiceOn.Address.Entities.Address", "RequestAdderss")
                         .WithMany("costomerRequests")
                         .HasForeignKey("AddressId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
+                        .OnDelete(DeleteBehavior.Restrict);
 
                     b.HasOne("App.Domain.Core.ServiceOn.User.Entities.Costomer", "Costomer")
                         .WithMany("requests")
                         .HasForeignKey("CostomerId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
+                        .OnDelete(DeleteBehavior.Restrict);
+
+                    b.HasOne("App.Domain.Core.ServiceOn.User.Entities.Expert", "ChoosenExpert")
+                        .WithMany("CostomerRequests")
+                        .HasForeignKey("ExpertId")
+                        .OnDelete(DeleteBehavior.Restrict);
 
                     b.HasOne("App.Domain.Core.ServiceOn.User.Entities.Operator", null)
                         .WithMany("CostomersRequests")
                         .HasForeignKey("OperatorId");
+
+                    b.Navigation("ChoosenExpert");
 
                     b.Navigation("Costomer");
 
@@ -427,14 +580,18 @@ namespace App.Infra.Db.SqlServer.Migrations
                     b.HasOne("App.Domain.Core.ServiceOn.Address.Entities.Address", "RequestAdderss")
                         .WithMany("expertRequests")
                         .HasForeignKey("AddressId")
-                        .OnDelete(DeleteBehavior.Restrict)
+                        .OnDelete(DeleteBehavior.Restrict);
+
+                    b.HasOne("App.Domain.Core.ServiceOn.Orders.Entities.CostomerRequest", "SpeceficRequest")
+                        .WithMany("RecivedRequest")
+                        .HasForeignKey("CostomerRequestId")
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("App.Domain.Core.ServiceOn.User.Entities.Expert", "Expert")
                         .WithMany("ExpertRequests")
                         .HasForeignKey("ExpertId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .OnDelete(DeleteBehavior.Restrict);
 
                     b.HasOne("App.Domain.Core.ServiceOn.User.Entities.Operator", null)
                         .WithMany("ExpertsRequests")
@@ -443,6 +600,8 @@ namespace App.Infra.Db.SqlServer.Migrations
                     b.Navigation("Expert");
 
                     b.Navigation("RequestAdderss");
+
+                    b.Navigation("SpeceficRequest");
                 });
 
             modelBuilder.Entity("App.Domain.Core.ServiceOn.User.Entities.Costomer", b =>
@@ -450,8 +609,7 @@ namespace App.Infra.Db.SqlServer.Migrations
                     b.HasOne("App.Domain.Core.ServiceOn.Address.Entities.Address", "Address")
                         .WithMany("Costomer")
                         .HasForeignKey("AddressId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .OnDelete(DeleteBehavior.Cascade);
 
                     b.Navigation("Address");
                 });
@@ -460,34 +618,16 @@ namespace App.Infra.Db.SqlServer.Migrations
                 {
                     b.HasOne("App.Domain.Core.ServiceOn.Category.Entities.SubCategories", "Abilities")
                         .WithMany("experts")
-                        .HasForeignKey("AbilityId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("AbilityId");
 
                     b.HasOne("App.Domain.Core.ServiceOn.Address.Entities.Address", "Address")
                         .WithMany("Expert")
                         .HasForeignKey("AddressId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
+                        .OnDelete(DeleteBehavior.Restrict);
 
                     b.Navigation("Abilities");
 
                     b.Navigation("Address");
-                });
-
-            modelBuilder.Entity("CostomerRequestExpert", b =>
-                {
-                    b.HasOne("App.Domain.Core.ServiceOn.Orders.Entities.CostomerRequest", null)
-                        .WithMany()
-                        .HasForeignKey("CostomerRequestsId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("App.Domain.Core.ServiceOn.User.Entities.Expert", null)
-                        .WithMany()
-                        .HasForeignKey("ExpertId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
                 });
 
             modelBuilder.Entity("App.Domain.Core.ServiceOn.Address.Entities.Address", b =>
@@ -516,6 +656,13 @@ namespace App.Infra.Db.SqlServer.Migrations
                     b.Navigation("experts");
                 });
 
+            modelBuilder.Entity("App.Domain.Core.ServiceOn.Orders.Entities.CostomerRequest", b =>
+                {
+                    b.Navigation("Images");
+
+                    b.Navigation("RecivedRequest");
+                });
+
             modelBuilder.Entity("App.Domain.Core.ServiceOn.User.Entities.Costomer", b =>
                 {
                     b.Navigation("feedBacks");
@@ -525,6 +672,8 @@ namespace App.Infra.Db.SqlServer.Migrations
 
             modelBuilder.Entity("App.Domain.Core.ServiceOn.User.Entities.Expert", b =>
                 {
+                    b.Navigation("CostomerRequests");
+
                     b.Navigation("ExpertRequests");
 
                     b.Navigation("feedBacks");

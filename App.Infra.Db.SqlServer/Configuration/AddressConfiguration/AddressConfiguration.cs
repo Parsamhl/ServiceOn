@@ -35,7 +35,7 @@ namespace App.Infra.Db.SqlServer.Configuration.AddressConfiguration
 
                 new Address() {Id = 1,City = "Tehran" , },
                 new Address() { Id = 2, City = "Karaj"  },
-                new Address() {Id =3 , City = "Arak"  }
+                new Address() {Id =3 , City = "Arak"  , CostomerId = "1"}
 
 
             });

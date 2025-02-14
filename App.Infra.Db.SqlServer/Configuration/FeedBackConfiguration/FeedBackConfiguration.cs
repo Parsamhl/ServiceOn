@@ -12,6 +12,8 @@ namespace App.Infra.Db.SqlServer.Configuration.FeedBackConfiguration
             builder.ToTable("FeedBacks");
             builder.HasKey(x => x.FeedBackId);
 
+            
+
             builder.HasData(new List<FeedBack>()
             {
                 
