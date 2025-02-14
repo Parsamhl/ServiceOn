@@ -17,6 +17,8 @@ namespace App.Domain.Core.ServiceOn.Orders.Entities
         public int price { get; set; }
         public DateTime DueTime { get; set; }
 
+        public Expert ExpertAccepted { get; set; }
+        public int ExpertId { get; set; }
         public Costomer Costomer { get; set; }
         public int CostomerId { get; set; }
 
