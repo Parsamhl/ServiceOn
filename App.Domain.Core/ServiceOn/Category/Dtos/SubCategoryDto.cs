@@ -1,0 +1,15 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace App.Domain.Core.ServiceOn.Category.Dtos
+{
+    public class SubCategoryDto
+    {
+        public int SubCategoryId { get; set; }
+        public string SubCategoryName { get; set; }
+       // public int MaincategoryId { get; set; }
+    }
+}

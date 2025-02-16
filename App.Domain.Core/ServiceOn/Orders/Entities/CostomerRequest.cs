@@ -1,5 +1,6 @@
 ﻿using App.Domain.Core.ServiceOn.Address.Entities;
 using App.Domain.Core.ServiceOn.Base.Entities;
+using App.Domain.Core.ServiceOn.Orders.Enums;
 using App.Domain.Core.ServiceOn.User.Entities;
 
 namespace App.Domain.Core.ServiceOn.Orders.Entities
@@ -13,6 +14,7 @@ namespace App.Domain.Core.ServiceOn.Orders.Entities
         public int? price { get; set; }
         public DateTime? DueTime { get; set; }
 
+        public StatusEnum RequestStatus { get; set; } = StatusEnum.Waiting;
         public Expert ChoosenExpert { get; set; } // kasi ke darkhastesh ghabol shode
         public int? ExpertId { get; set; }
 

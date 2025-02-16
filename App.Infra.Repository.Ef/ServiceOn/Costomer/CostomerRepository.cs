@@ -1,4 +1,7 @@
-﻿using App.Domain.Core.ServiceOn.User.Data.Repository;
+﻿using App.Domain.Core.ServiceOn.Resualt;
+using App.Domain.Core.ServiceOn.User.Data.Repository;
+using App.Domain.Core.ServiceOn.User.Dtos;
+using App.Domain.Core.ServiceOn.User.Entities;
 using App.Infra.Db.SqlServer.SqlServerDb;
 using System;
 using System.Collections.Generic;
@@ -17,52 +20,30 @@ namespace App.Infra.Repository.Ef.ServiceOn.Costomer
         {
             _context = new ServiceOnDbContext();
         }
-        public void Add(Domain.Core.ServiceOn.User.Entities.Costomer costomer)
+
+        public Task<Result> add(UserDtos user, CancellationToken cancellation)
         {
-            _context.Add(costomer);
-            _context.SaveChanges();
+            throw new NotImplementedException();
         }
 
-        public float DepositBalance(int id, float amount)
+        public Task<float> DepositBalance(int id, float amount)
         {
-            var Costomer = _context.Costomers.FirstOrDefault(x => x.Id == id);
-            if (Costomer == null)
-            {
-                throw new Exception("User Not Found");
-            }
-            else
-            {
-                Costomer.Balance += Convert.ToInt32(amount);
-                _context.SaveChanges();
-                return Costomer.Balance;
-
-            }
+            throw new NotImplementedException();
         }
 
-        public List<Domain.Core.ServiceOn.User.Entities.Costomer> GetAll()
-        
-            => _context.Costomers.ToList();
-
-
-        public Domain.Core.ServiceOn.User.Entities.Costomer GetCostomer(int id)
-
-            => _context.Costomers.FirstOrDefault(x => x.Id == id);
-        
-
-        public float WithrawBalance(int id, float amount)
+        public Task<List<User>>? GetAll(User user, CancellationToken cancellation)
         {
-            var Costomer = _context.Costomers.FirstOrDefault(x => x.Id == id);
-            if (Costomer == null)
-            {
-                throw new Exception("User Not Found");
-            }
-            else
-            {
-                Costomer.Balance -= Convert.ToInt32(amount);
-                _context.SaveChanges();
-                return Costomer.Balance;
+            throw new NotImplementedException();
+        }
 
-            }
+        public Task<User>? GetById(int id, CancellationToken cancellation)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<float> WithrawBalance(int id, float amount)
+        {
+            throw new NotImplementedException();
         }
     }
 }

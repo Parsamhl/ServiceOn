@@ -1,22 +1,29 @@
 ﻿using App.Domain.Core.ServiceOn.Address.Data.Repository;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using App.Domain.Core.ServiceOn.Address.Dtos;
+using App.Domain.Core.ServiceOn.Resualt;
 
 namespace App.Infra.Repository.Ef.ServiceOn.Address
 {
     public class AddressRepository : IAddressRepository
     {
-        public void Add(Domain.Core.ServiceOn.Address.Entities.Address address)
+        public Task<Result> Add(AddressDto address, CancellationToken cancellationToken)
         {
-           
+            throw new NotImplementedException();
         }
 
-        public void Delete(Domain.Core.ServiceOn.Address.Entities.Address address)
+        public Task<Result> Delete(AddressDto address, CancellationToken cancellationToken)
         {
-            
+            throw new NotImplementedException();
+        }
+
+        public Task<List<AddressDto>> GetAll()
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<AddressDto> GetById(int id, CancellationToken cancellation)
+        {
+            throw new NotImplementedException();
         }
     }
 }

@@ -11,13 +11,11 @@
     <Folder Include="ServiceOn\Address\Service\" />
     <Folder Include="ServiceOn\AllService\AppService\" />
     <Folder Include="ServiceOn\AllService\Service\" />
-    <Folder Include="ServiceOn\Base\Data\" />
     <Folder Include="ServiceOn\Category\AppService\" />
     <Folder Include="ServiceOn\Category\Service\" />
     <Folder Include="ServiceOn\FeedBack\AppService\" />
     <Folder Include="ServiceOn\FeedBack\Service\" />
     <Folder Include="ServiceOn\Orders\AppService\" />
-    <Folder Include="ServiceOn\Orders\Enums\" />
     <Folder Include="ServiceOn\Orders\Service\" />
     <Folder Include="ServiceOn\User\AppService\" />
     <Folder Include="ServiceOn\User\Enums\" />

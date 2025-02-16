@@ -6,14 +6,12 @@ using System.Threading.Tasks;
 
 namespace App.Domain.Core.ServiceOn.Orders.Dtos
 {
-    public class CostomerRequestDto
+    public class ExpertRequestDto
     {
         public int Id { get; set; }
         public string? Title { get; set; }
         public string? Description { get; set; }
         public int? price { get; set; }
-        public DateTime? DueTime { get; set; }
-        public List<string> ImagePath { get; set; }
-
+        public DateTime DueTime { get; set; }
     }
 }

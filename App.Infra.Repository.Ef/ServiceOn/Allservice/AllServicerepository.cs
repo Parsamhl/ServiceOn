@@ -1,5 +1,7 @@
 ﻿using App.Domain.Core.ServiceOn.AllService.Data.Repository.cs;
+using App.Domain.Core.ServiceOn.AllService.Dtos;
 using App.Domain.Core.ServiceOn.AllService.Entities;
+using App.Domain.Core.ServiceOn.Resualt;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,23 +12,24 @@ namespace App.Infra.Repository.Ef.ServiceOn.Allservice
 {
     public class AllServicerepository : IAllServicerepository
     {
-        public void Add(AllService service)
+        public Task<Result> Add(AllServiceDto service, CancellationToken cancellation)
         {
-            
+            throw new NotImplementedException();
         }
 
-        public void Delete(AllService service)
+        public Task<Result> Delete(int id, CancellationToken cancellation)
         {
+            throw new NotImplementedException();
         }
 
-        public List<AllService> GetAllService()
+        public Task<List<AllServiceDto>> GetAllService()
         {
-            return null;
+            throw new NotImplementedException();
         }
 
-        public AllService GetService(int id)
+        public Task<AllServiceDto> GetServic(int id, CancellationToken cancellation)
         {
-            return null;
+            throw new NotImplementedException();
         }
     }
 }

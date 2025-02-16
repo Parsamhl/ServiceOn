@@ -1,6 +1,8 @@
-﻿using App.Domain.Core.ServiceOn.User.Data.Repository;
+﻿using App.Domain.Core.ServiceOn.Resualt;
+using App.Domain.Core.ServiceOn.User.Data.Repository;
+using App.Domain.Core.ServiceOn.User.Dtos;
+using App.Domain.Core.ServiceOn.User.Entities;
 using App.Infra.Db.SqlServer.SqlServerDb;
-
 
 namespace App.Infra.Repository.Ef.ServiceOn.Expert
 {
@@ -13,51 +15,30 @@ namespace App.Infra.Repository.Ef.ServiceOn.Expert
         {
             _context = new ServiceOnDbContext();
         }
-        public void Add(Domain.Core.ServiceOn.User.Entities.Expert entity)
+
+        public Task<Result> add(UserDtos user, CancellationToken cancellation)
         {
-            _context.Add(entity);
-            _context.SaveChanges();
+            throw new NotImplementedException();
         }
 
-        public float DepositBalance(int id, float amount)
+        public Task<float> DepositBalance(int id, float amount)
         {
-            var expert = _context.Experts.FirstOrDefault(x => x.Id == id);
-            if (expert == null)
-            {
-
-                throw new Exception("User Not Found ");
-            }
-            else
-            {
-                expert.Balance += Convert.ToInt32(amount);
-                _context.SaveChanges();
-                return expert.Balance;
-            }
+            throw new NotImplementedException();
         }
 
-        public List<Domain.Core.ServiceOn.User.Entities.Expert> GetAll()
-        => _context.Experts.ToList();
-
-        public Domain.Core.ServiceOn.User.Entities.Expert GetExpert(int id)
-
-            => _context.Experts.FirstOrDefault(x => x.Id == id);
-            
-        
-
-        public float WithrawBalance(int id, float amount)
+        public Task<List<User>>? GetAll(User user, CancellationToken cancellation)
         {
-            var expert = _context.Experts.FirstOrDefault(x => x.Id == id);
-            if (expert == null)
-            {
+            throw new NotImplementedException();
+        }
 
-                throw new Exception("User Not Found ");
-            }
-            else
-            {
-                expert.Balance -= Convert.ToInt32(amount);
-                _context.SaveChanges();
-                return expert.Balance;
-            }
+        public Task<User>? GetById(int id, CancellationToken cancellation)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<float> WithrawBalance(int id, float amount)
+        {
+            throw new NotImplementedException();
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿namespace App.Domain.Core.HomeService.Result
+﻿namespace App.Domain.Core.ServiceOn.Resualt
 {
     public class Result
     {

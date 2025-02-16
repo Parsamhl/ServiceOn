@@ -1,23 +1,29 @@
-﻿using App.Domain.Core.ServiceOn.User.Data.Repository;
-
+﻿using App.Domain.Core.ServiceOn.Resualt;
+using App.Domain.Core.ServiceOn.User.Data.Repository;
+using App.Domain.Core.ServiceOn.User.Dtos;
 
 namespace App.Infra.Repository.Ef.ServiceOn.Operator
 {
     public class OperatorRepository : IOperatorRepository
     {
-        public void Add(Domain.Core.ServiceOn.User.Entities.Operator entity)
+        public Task<Result> add(UserDtos user, CancellationToken cancellation)
         {
-
+            throw new NotImplementedException();
         }
 
-        public List<Domain.Core.ServiceOn.User.Entities.Operator> GetAll()
+        public Task<Result> Delete(UserDtos user, CancellationToken cancellation)
         {
-            return null;
+            throw new NotImplementedException();
         }
 
-        public Domain.Core.ServiceOn.User.Entities.Operator GetById(int id)
+        public Task<List<UserDtos>> GetAll()
         {
-            return null;
+            throw new NotImplementedException();
+        }
+
+        public Task<Domain.Core.ServiceOn.User.Entities.Operator> GetById(int id, CancellationToken cancellation)
+        {
+            throw new NotImplementedException();
         }
     }
 }
