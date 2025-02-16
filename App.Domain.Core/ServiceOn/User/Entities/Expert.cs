@@ -8,9 +8,6 @@ namespace App.Domain.Core.ServiceOn.User.Entities
     public class Expert : User
     {
 
-      
-
-
         // expert  availability
         bool IsActive { get; set; }
 

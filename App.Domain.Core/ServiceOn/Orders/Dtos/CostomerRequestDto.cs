@@ -1,4 +1,5 @@
-﻿using System;
+﻿using App.Domain.Core.ServiceOn.Orders.Enums;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,6 +15,7 @@ namespace App.Domain.Core.ServiceOn.Orders.Dtos
         public int? price { get; set; }
         public DateTime? DueTime { get; set; }
         public List<string> ImagePath { get; set; }
+        public StatusEnum RequestStatus { get; set; } = StatusEnum.Waiting;
 
     }
 }

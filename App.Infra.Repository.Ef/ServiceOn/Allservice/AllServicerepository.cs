@@ -2,6 +2,7 @@
 using App.Domain.Core.ServiceOn.AllService.Dtos;
 using App.Domain.Core.ServiceOn.AllService.Entities;
 using App.Domain.Core.ServiceOn.Resualt;
+using App.Infra.Db.SqlServer.SqlServerDb;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace App.Infra.Repository.Ef.ServiceOn.Allservice
 {
-    public class AllServicerepository : IAllServicerepository
+    public class AllServicerepository(ServiceOnDbContext _context) : IAllServicerepository
     {
         public Task<Result> Add(AllServiceDto service, CancellationToken cancellation)
         {

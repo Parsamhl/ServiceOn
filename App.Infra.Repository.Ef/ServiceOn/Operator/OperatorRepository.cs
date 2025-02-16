@@ -1,10 +1,11 @@
 ﻿using App.Domain.Core.ServiceOn.Resualt;
 using App.Domain.Core.ServiceOn.User.Data.Repository;
 using App.Domain.Core.ServiceOn.User.Dtos;
+using App.Infra.Db.SqlServer.SqlServerDb;
 
 namespace App.Infra.Repository.Ef.ServiceOn.Operator
 {
-    public class OperatorRepository : IOperatorRepository
+    public class OperatorRepository(ServiceOnDbContext _context) : IOperatorRepository
     {
         public Task<Result> add(UserDtos user, CancellationToken cancellation)
         {

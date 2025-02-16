@@ -1,28 +1,30 @@
 ﻿using App.Domain.Core.ServiceOn.Orders.Data.Repository;
-
+using App.Domain.Core.ServiceOn.Orders.Dtos;
+using App.Domain.Core.ServiceOn.Resualt;
+using App.Infra.Db.SqlServer.SqlServerDb;
 
 namespace App.Infra.Repository.Ef.ServiceOn.ExpertRequest
 {
-    public class ExpertRequestRepository : IExpertRequestRepository
+    public class ExpertRequestRepository(ServiceOnDbContext _context) : IExpertRequestRepository
     {
-        public void Add(Domain.Core.ServiceOn.Orders.Entities.ExpertRequest expertRequest)
+        public Task<Result> Add(ExpertRequestDto expertRequest, CancellationToken cancellationToken)
         {
-          
+            throw new NotImplementedException();
         }
 
-        public void Delete(Domain.Core.ServiceOn.Orders.Entities.ExpertRequest expertRequest)
+        public Task<Result> delete(ExpertRequestDto expertRequest, CancellationToken cancellationToken)
         {
-            
+            throw new NotImplementedException();
         }
 
-        public List<Domain.Core.ServiceOn.Orders.Entities.ExpertRequest> GetAll()
+        public Task<List<ExpertRequestDto>> GetAll()
         {
-            return null;
+            throw new NotImplementedException();
         }
 
-        public List<Domain.Core.ServiceOn.Orders.Entities.ExpertRequest> GetFor(int id)
+        public Task<ExpertRequestDto> GetById(int id, CancellationToken cancellation)
         {
-            return null;
+            throw new NotImplementedException();
         }
     }
 }

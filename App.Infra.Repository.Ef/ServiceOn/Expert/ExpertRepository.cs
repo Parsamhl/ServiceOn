@@ -6,16 +6,12 @@ using App.Infra.Db.SqlServer.SqlServerDb;
 
 namespace App.Infra.Repository.Ef.ServiceOn.Expert
 {
-    public class ExpertRepository : IExpertrepository
+    public class ExpertRepository(ServiceOnDbContext _context) : IExpertrepository
     {
 
-        private readonly ServiceOnDbContext _context;
+       
 
-        public ExpertRepository()
-        {
-            _context = new ServiceOnDbContext();
-        }
-
+   
         public Task<Result> add(UserDtos user, CancellationToken cancellation)
         {
             throw new NotImplementedException();

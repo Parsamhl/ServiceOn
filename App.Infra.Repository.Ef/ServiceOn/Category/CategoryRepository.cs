@@ -1,5 +1,6 @@
 ﻿using App.Domain.Core.ServiceOn.Category.Data.Repository;
 using App.Domain.Core.ServiceOn.Category.Entities;
+using App.Infra.Db.SqlServer.SqlServerDb;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace App.Infra.Repository.Ef.ServiceOn.Category
 {
-    public class CategoryRepository : ICategoryRepository
+    public class CategoryRepository(ServiceOnDbContext _context) : ICategoryRepository
     {
         public void Add(Categories category)
         {

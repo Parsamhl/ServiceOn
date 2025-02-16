@@ -1,29 +1,44 @@
 ﻿using App.Domain.Core.ServiceOn.Address.Data.Repository;
 using App.Domain.Core.ServiceOn.Address.Dtos;
 using App.Domain.Core.ServiceOn.Resualt;
+using App.Infra.Db.SqlServer.SqlServerDb;
+using Microsoft.EntityFrameworkCore;
 
 namespace App.Infra.Repository.Ef.ServiceOn.Address
 {
-    public class AddressRepository : IAddressRepository
+    public class AddressRepository(ServiceOnDbContext _context) : IAddressRepository
     {
-        public Task<Result> Add(AddressDto address, CancellationToken cancellationToken)
+        public async Task<Result> Add(AddressDto address, CancellationToken cancellationToken)
         {
-            throw new NotImplementedException();
+            if(address is null)
+                return new Result (false , "City Not found");
+
+            await _context.AddAsync(address);
+            await _context.SaveChangesAsync();
+
+            return new Result(true, "Successful");
         }
 
-        public Task<Result> Delete(AddressDto address, CancellationToken cancellationToken)
+        public async Task<Result> Delete(int id, CancellationToken cancellationToken)
         {
-            throw new NotImplementedException();
+            var city = await _context.Address.FirstOrDefaultAsync(x => x.Id == id);
+            if (city is null)
+                return new Result(false, "City Not Found");
+
+            _context.Address.Remove(city);
+            await _context.SaveChangesAsync();
+
+            return new Result(true, "Done");
         }
 
-        public Task<List<AddressDto>> GetAll()
+        public async Task<List<AddressDto>> GetAll()
         {
-            throw new NotImplementedException();
+            return await _context.Address.AsNoTracking().ToListAsync();
         }
 
-        public Task<AddressDto> GetById(int id, CancellationToken cancellation)
+        public async Task<AddressDto> GetById(int id, CancellationToken cancellation)
         {
-            throw new NotImplementedException();
+            return await _context.Address.AsNoTracking().FirstOrDefaultAsync(x => x.Id == id);
         }
     }
 }

@@ -1,23 +1,25 @@
 ﻿using App.Domain.Core.ServiceOn.Orders.Data.Repository;
-
+using App.Domain.Core.ServiceOn.Orders.Dtos;
+using App.Domain.Core.ServiceOn.Resualt;
+using App.Infra.Db.SqlServer.SqlServerDb;
 
 namespace App.Infra.Repository.Ef.ServiceOn.CostomerRequest
 {
-    public class CostomerRequserRepository : ICostomerRequestRepository
+    public class CostomerRequserRepository(ServiceOnDbContext _context) : ICostomerRequestRepository
     {
-        public void Add(Domain.Core.ServiceOn.Orders.Entities.CostomerRequest costomerRequest)
+        public Task<Result> Add(CostomerRequestDto costomerRequestDto, CancellationToken cancellation)
         {
-           return;
+            throw new NotImplementedException();
         }
 
-        public void Delete(Domain.Core.ServiceOn.Orders.Entities.CostomerRequest costomerRequest)
+        public Task<Result> Delete(CostomerRequestDto costomerRequestDto, CancellationToken cancellation)
         {
-            return ;
+            throw new NotImplementedException();
         }
 
-        public List<Domain.Core.ServiceOn.Orders.Entities.CostomerRequest> GetAll()
+        public Task<List<CostomerRequestDto>> GetAll()
         {
-            return null;
+            throw new NotImplementedException();
         }
     }
 }

@@ -1,8 +1,9 @@
 ﻿using App.Domain.Core.ServiceOn.FeedBack.Data.Repository;
+using App.Infra.Db.SqlServer.SqlServerDb;
 
 namespace App.Infra.Repository.Ef.ServiceOn.FeedBack
 {
-    public class FeedBackRepository : IFeedBackRepository
+    public class FeedBackRepository(ServiceOnDbContext _context) : IFeedBackRepository
     {
         public void Add(Domain.Core.ServiceOn.FeedBack.Entities.FeedBack feedback)
         {

@@ -1,13 +1,10 @@
 ﻿using App.Domain.Core.ServiceOn.Category.Data.Repository;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using App.Infra.Db.SqlServer.SqlServerDb;
+
 
 namespace App.Infra.Repository.Ef.ServiceOn.SubCategories
 {
-    public class SubCategoryRepository : ISubcategoryRepository
+    public class SubCategoryRepository(ServiceOnDbContext _context) : ISubcategoryRepository
     {
         public void Add(Domain.Core.ServiceOn.Category.Entities.SubCategories subcategory)
         {

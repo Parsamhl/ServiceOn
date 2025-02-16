@@ -21,10 +21,10 @@ namespace App.Infra.Db.SqlServer.SqlServerDb
     public class ServiceOnDbContext : DbContext
     {
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+     
+        public ServiceOnDbContext(DbContextOptions<ServiceOnDbContext> dbContextOptions) : base(dbContextOptions)
         {
-            optionsBuilder.UseSqlServer(@"Data Source=(LocalDb)\MSSQLLocalDB;Initial Catalog=ServiceOn;Integrated Security=SSPI;");
-            base.OnConfiguring(optionsBuilder);
+            
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

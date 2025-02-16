@@ -11,15 +11,11 @@ using System.Threading.Tasks;
 
 namespace App.Infra.Repository.Ef.ServiceOn.Costomer
 {
-    public class CostomerRepository : ICostomerRepository
+    public class CostomerRepository(ServiceOnDbContext _context) : ICostomerRepository
     {
 
         private readonly ServiceOnDbContext _context;
 
-        public CostomerRepository()
-        {
-            _context = new ServiceOnDbContext();
-        }
 
         public Task<Result> add(UserDtos user, CancellationToken cancellation)
         {
