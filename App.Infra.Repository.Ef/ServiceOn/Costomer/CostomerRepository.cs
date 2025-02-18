@@ -3,11 +3,7 @@ using App.Domain.Core.ServiceOn.User.Data.Repository;
 using App.Domain.Core.ServiceOn.User.Dtos;
 using App.Domain.Core.ServiceOn.User.Entities;
 using App.Infra.Db.SqlServer.SqlServerDb;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace App.Infra.Repository.Ef.ServiceOn.Costomer
 {

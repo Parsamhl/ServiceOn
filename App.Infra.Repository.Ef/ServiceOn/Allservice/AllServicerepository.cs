@@ -3,6 +3,7 @@ using App.Domain.Core.ServiceOn.AllService.Dtos;
 using App.Domain.Core.ServiceOn.AllService.Entities;
 using App.Domain.Core.ServiceOn.Resualt;
 using App.Infra.Db.SqlServer.SqlServerDb;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,24 +14,39 @@ namespace App.Infra.Repository.Ef.ServiceOn.Allservice
 {
     public class AllServicerepository(ServiceOnDbContext _context) : IAllServicerepository
     {
-        public Task<Result> Add(AllServiceDto service, CancellationToken cancellation)
+        public async Task<Result> Add(AllServiceDto service, CancellationToken cancellation)
         {
-            throw new NotImplementedException();
+            if (service is null)
+                return new Result(false, "Failed to add");
+
+            await _context.AllService.AddAsync(service);
+            await _context.SaveChangesAsync();
+
+            return new Result(true, " Successful");
+
         }
 
-        public Task<Result> Delete(int id, CancellationToken cancellation)
+        public async Task<Result> Delete(int id, CancellationToken cancellation)
         {
-            throw new NotImplementedException();
+            var service = await _context.AllService.FirstOrDefaultAsync(x => x.Id == id);
+
+            if (service is null)
+                return new Result(false, "Service not founmd");
+
+            _context.AllService.Remove(service);
+            await _context.SaveChangesAsync();
+
+            return new Result(true, " successful");
         }
 
-        public Task<List<AllServiceDto>> GetAllService()
+        public async Task<List<AllServiceDto>> GetAllService()
         {
-            throw new NotImplementedException();
+            return await _context.AllService.AsNoTracking().ToListAsync();
         }
 
-        public Task<AllServiceDto> GetServic(int id, CancellationToken cancellation)
+        public async Task<AllServiceDto> GetServic(int id, CancellationToken cancellation)
         {
-            throw new NotImplementedException();
+            return await _context.AllService.FirstOrDefaultAsync(_ => _.Id == id);
         }
     }
 }

@@ -11,5 +11,6 @@ namespace App.Domain.Core.ServiceOn.FeedBack.Dtos
         public DateOnly SubmitedAt { get; set; }
         public StatusEnum? FeedBackStatus { get; set; } = StatusEnum.waiting;
         public float? Rate { get; set; }
+        public int ExpertID { get; set; }
     }
 }

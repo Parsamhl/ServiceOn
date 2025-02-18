@@ -1,4 +1,5 @@
 ﻿using App.Domain.Core.ServiceOn.Category.Data.Repository;
+using App.Domain.Core.ServiceOn.Category.Dtos;
 using App.Domain.Core.ServiceOn.Category.Entities;
 using App.Infra.Db.SqlServer.SqlServerDb;
 using System;
@@ -11,24 +12,24 @@ namespace App.Infra.Repository.Ef.ServiceOn.Category
 {
     public class CategoryRepository(ServiceOnDbContext _context) : ICategoryRepository
     {
-        public void Add(Categories category)
+        public Task<CategoryDto> Add(CategoryDto categoryDto, CancellationToken cancellation)
         {
-            
+            throw new NotImplementedException();
         }
 
-        public void Delete(Categories category)
+        public Task<CategoryDto> Delete(int id, CancellationToken cancellation)
         {
-        
+            throw new NotImplementedException();
         }
 
-        public List<Categories> GetAll()
+        public Task<List<CategoryDto>> GetAll()
         {
-            return null;
+            throw new NotImplementedException();
         }
 
-        public Categories GetCategory(int id)
+        public Task<CategoryDto> GetById(int id, CancellationToken cancellation)
         {
-            return null;
+            throw new NotImplementedException();
         }
     }
 }

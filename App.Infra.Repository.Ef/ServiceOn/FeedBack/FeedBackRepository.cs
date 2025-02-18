@@ -1,38 +1,35 @@
 ﻿using App.Domain.Core.ServiceOn.FeedBack.Data.Repository;
+using App.Domain.Core.ServiceOn.FeedBack.Dtos;
+using App.Domain.Core.ServiceOn.Resualt;
 using App.Infra.Db.SqlServer.SqlServerDb;
 
 namespace App.Infra.Repository.Ef.ServiceOn.FeedBack
 {
     public class FeedBackRepository(ServiceOnDbContext _context) : IFeedBackRepository
     {
-        public void Add(Domain.Core.ServiceOn.FeedBack.Entities.FeedBack feedback)
+        public Task<Result> Add(FeedBackDto feddBack, CancellationToken cancellation)
         {
-            
+            throw new NotImplementedException();
         }
 
         public void ChangeStatus(Domain.Core.ServiceOn.FeedBack.Entities.FeedBack feedback)
         {
-            
+            throw new NotImplementedException();
         }
 
-        public void Delete(Domain.Core.ServiceOn.FeedBack.Entities.FeedBack feedback)
+        public Task<Result> Delete(int id, CancellationToken cancellation)
         {
-            
+            throw new NotImplementedException();
         }
 
-        public List<Domain.Core.ServiceOn.FeedBack.Entities.FeedBack> GetAll()
+        public Task<List<FeedBackDto>>? GetAll(FeedBackDto feddBack, CancellationToken cancellation)
         {
-            return null;
+            throw new NotImplementedException();
         }
 
-        public Domain.Core.ServiceOn.FeedBack.Entities.FeedBack GetFeedBack(int id)
+        public Task<FeedBackDto>? GetById(int id, CancellationToken cancellation)
         {
-            return null;
-        }
-
-        public List<Domain.Core.ServiceOn.FeedBack.Entities.FeedBack> GetFor(int id)
-        {
-            return null ;
+            throw new NotImplementedException();
         }
     }
 }

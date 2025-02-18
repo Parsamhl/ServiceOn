@@ -1,4 +1,5 @@
-﻿using System;
+﻿using App.Domain.Core.ServiceOn.Category.Dtos;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,9 +9,10 @@ namespace App.Domain.Core.ServiceOn.Category.Data.Repository
 {
     public interface ICategoryRepository
     {
-        List<Entities.Categories> GetAll();
-        Entities.Categories GetCategory(int id);
-        void Add(Entities.Categories category);
-        void Delete (Entities.Categories category);
+
+        public Task<List<CategoryDto>> GetAll();
+        public Task<CategoryDto> GetById(int id , CancellationToken cancellation);
+        public Task<CategoryDto> Add(CategoryDto categoryDto , CancellationToken cancellation);
+        public Task<CategoryDto> Delete(int id , CancellationToken cancellation);
     }
 }

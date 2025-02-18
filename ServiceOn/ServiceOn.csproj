@@ -20,4 +20,10 @@
     <ProjectReference Include="..\App.Packages\App.Packages.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Views\Home\FeedBack\" />
+    <Folder Include="Views\Oreders\" />
+    <Folder Include="Views\User\" />
+  </ItemGroup>
+
 </Project>
