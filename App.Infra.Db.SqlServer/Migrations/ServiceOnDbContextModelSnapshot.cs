@@ -17,7 +17,7 @@ namespace App.Infra.Db.SqlServer.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "9.0.1")
+                .HasAnnotation("ProductVersion", "9.0.2")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
@@ -337,18 +337,16 @@ namespace App.Infra.Db.SqlServer.Migrations
                     b.Property<int?>("AddressId")
                         .HasColumnType("int");
 
-                    b.Property<int>("Age")
+                    b.Property<int?>("Age")
                         .HasColumnType("int");
 
-                    b.Property<int>("Balance")
-                        .HasColumnType("int");
+                    b.Property<float>("Balance")
+                        .HasColumnType("real");
 
                     b.Property<string>("LastName")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Password")
@@ -371,7 +369,7 @@ namespace App.Infra.Db.SqlServer.Migrations
                             Id = 1,
                             AddressId = 1,
                             Age = 26,
-                            Balance = 260,
+                            Balance = 260f,
                             LastName = "Mohammadi",
                             Name = " ALi",
                             Password = "ali1350.",
@@ -382,7 +380,7 @@ namespace App.Infra.Db.SqlServer.Migrations
                             Id = 2,
                             AddressId = 1,
                             Age = 20,
-                            Balance = 50,
+                            Balance = 50f,
                             LastName = "Farahi",
                             Name = "Keyvan",
                             Password = "258976",
@@ -404,18 +402,16 @@ namespace App.Infra.Db.SqlServer.Migrations
                     b.Property<int?>("AddressId")
                         .HasColumnType("int");
 
-                    b.Property<int>("Age")
+                    b.Property<int?>("Age")
                         .HasColumnType("int");
 
-                    b.Property<int>("Balance")
-                        .HasColumnType("int");
+                    b.Property<float>("Balance")
+                        .HasColumnType("real");
 
                     b.Property<string>("LastName")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Password")
@@ -443,7 +439,7 @@ namespace App.Infra.Db.SqlServer.Migrations
                             Id = 1,
                             AddressId = 1,
                             Age = 20,
-                            Balance = 800,
+                            Balance = 800f,
                             LastName = "Mousavi",
                             Name = "Parsa",
                             Password = " parsa1383",

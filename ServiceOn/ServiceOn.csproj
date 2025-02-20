@@ -7,16 +7,16 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Folder Include="Views\FeedBack\" />
+    <Folder Include="Views\Oreders\" />
+    <Folder Include="Views\User\" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="9.0.2">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Views\Home\FeedBack\" />
-    <Folder Include="Views\Oreders\" />
-    <Folder Include="Views\User\" />
   </ItemGroup>
 
   <ItemGroup>

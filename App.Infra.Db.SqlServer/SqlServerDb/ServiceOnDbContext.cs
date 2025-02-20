@@ -16,6 +16,7 @@ using App.Infra.Db.SqlServer.Configuration.FeedBackConfiguration;
 using App.Infra.Db.SqlServer.Configuration.OperatorConfiguration;
 using App.Infra.Db.SqlServer.Configuration.SubCategoryConfiguration;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
 
 
 namespace App.Infra.Db.SqlServer.SqlServerDb
@@ -24,7 +25,7 @@ namespace App.Infra.Db.SqlServer.SqlServerDb
     {
 
      
-        public ServiceOnDbContext(DbContextOptions<ServiceOnDbContext> dbContextOptions) : base(dbContextOptions)
+        public ServiceOnDbContext(DbContextOptions<ServiceOnDbContext> options) : base(options)
         {
             
         }

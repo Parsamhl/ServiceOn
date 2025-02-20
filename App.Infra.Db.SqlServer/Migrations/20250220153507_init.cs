@@ -63,12 +63,12 @@ namespace App.Infra.Db.SqlServer.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     AddressId = table.Column<int>(type: "int", nullable: true),
-                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    LastName = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Age = table.Column<int>(type: "int", nullable: false),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    LastName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Age = table.Column<int>(type: "int", nullable: true),
                     UserName = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Password = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Balance = table.Column<int>(type: "int", nullable: false)
+                    Balance = table.Column<float>(type: "real", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -130,12 +130,12 @@ namespace App.Infra.Db.SqlServer.Migrations
                     AbilityId = table.Column<int>(type: "int", nullable: true),
                     Rate = table.Column<float>(type: "real", nullable: false),
                     AddressId = table.Column<int>(type: "int", nullable: true),
-                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    LastName = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Age = table.Column<int>(type: "int", nullable: false),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    LastName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Age = table.Column<int>(type: "int", nullable: true),
                     UserName = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Password = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Balance = table.Column<int>(type: "int", nullable: false)
+                    Balance = table.Column<float>(type: "real", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -163,6 +163,7 @@ namespace App.Infra.Db.SqlServer.Migrations
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     price = table.Column<int>(type: "int", nullable: true),
                     DueTime = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    RequestStatus = table.Column<int>(type: "int", nullable: false),
                     ExpertId = table.Column<int>(type: "int", nullable: true),
                     CostomerId = table.Column<int>(type: "int", nullable: true),
                     AddressId = table.Column<int>(type: "int", nullable: true),
@@ -342,14 +343,14 @@ namespace App.Infra.Db.SqlServer.Migrations
                 columns: new[] { "Id", "AddressId", "Age", "Balance", "LastName", "Name", "Password", "UserName" },
                 values: new object[,]
                 {
-                    { 1, 1, 26, 260, "Mohammadi", " ALi", "ali1350.", "Ali1350" },
-                    { 2, 1, 20, 50, "Farahi", "Keyvan", "258976", "K1farahi" }
+                    { 1, 1, 26, 260f, "Mohammadi", " ALi", "ali1350.", "Ali1350" },
+                    { 2, 1, 20, 50f, "Farahi", "Keyvan", "258976", "K1farahi" }
                 });
 
             migrationBuilder.InsertData(
                 table: "Experts",
                 columns: new[] { "Id", "AbilityId", "AddressId", "Age", "Balance", "LastName", "Name", "Password", "Rate", "UserName" },
-                values: new object[] { 1, null, 1, 20, 800, "Mousavi", "Parsa", " parsa1383", 0f, "parsa_mhl" });
+                values: new object[] { 1, null, 1, 20, 800f, "Mousavi", "Parsa", " parsa1383", 0f, "parsa_mhl" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Categories_MainSerivceId",

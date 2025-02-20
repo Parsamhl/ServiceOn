@@ -1,0 +1,49 @@
+﻿
+body {
+    font-family: Tahoma, sans-serif;
+    direction: rtl;
+    text-align: right;
+}
+
+.hero {
+    background: url(https://source.unsplash.com/1600x900/?home,cleaning) no-repeat center center;
+    background-size: cover;
+    height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+.auth-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.btn-login {
+    background-color: transparent;
+    border: 2px solid white;
+    color: white;
+    padding: 5px 15px;
+    border-radius: 20px;
+    transition: 0.3s;
+}
+
+    .btn-login:hover {
+        background-color: white;
+        color: black;
+    }
+
+.btn-signup {
+    background-color: #f8b400;
+    border: none;
+    padding: 6px 18px;
+    border-radius: 20px;
+    color: black;
+    transition: 0.3s;
+}
+
+    .btn-signup:hover {
+        background-color: #e09e00;
+    }

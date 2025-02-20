@@ -27,7 +27,7 @@ builder.Services.AddControllersWithViews();
 
 
 var configuration = new ConfigurationBuilder().AddJsonFile("appsettings.json").Build();
-var siteSettings = configuration.GetSection("SiteSettings").Get<SiteSetting>();
+var siteSettings = configuration.GetSection("SiteSetting").Get<SiteSetting>();
 builder.Services.AddSingleton(siteSettings);
 
 builder.Services.AddDbContext<ServiceOnDbContext>(options =>
@@ -38,7 +38,7 @@ builder.Services.AddDbContext<ServiceOnDbContext>(options =>
 // Add services to the container.
 
 
-builder.Services.AddControllersWithViews();
+
 builder.Services.AddScoped<ICostomerRepository, CostomerRepository>();
 builder.Services.AddScoped<IExpertrepository, ExpertRepository>();
 builder.Services.AddScoped<IOperatorRepository, OperatorRepository>();
@@ -58,10 +58,14 @@ var app = builder.Build();
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Home/Error");
+
+    app.UseHsts();
 }
-app.UseStaticFiles();
+
+app.UseHttpsRedirection();
 
 app.UseRouting();
+
 
 app.UseAuthorization();
 
