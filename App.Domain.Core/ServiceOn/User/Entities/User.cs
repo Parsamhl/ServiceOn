@@ -1,8 +1,10 @@
 ﻿
 
+using Microsoft.AspNetCore.Identity;
+
 namespace App.Domain.Core.ServiceOn.User.Entities
 {
-    public class User 
+    public class User : IdentityUser<int>
     {
 
         public int Id { get; set; }
