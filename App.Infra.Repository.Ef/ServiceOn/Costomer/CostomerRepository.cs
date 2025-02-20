@@ -3,6 +3,7 @@ using App.Domain.Core.ServiceOn.User.Data.Repository;
 using App.Domain.Core.ServiceOn.User.Dtos;
 using App.Domain.Core.ServiceOn.User.Entities;
 using App.Infra.Db.SqlServer.SqlServerDb;
+using Microsoft.EntityFrameworkCore;
 
 
 namespace App.Infra.Repository.Ef.ServiceOn.Costomer
@@ -10,32 +11,54 @@ namespace App.Infra.Repository.Ef.ServiceOn.Costomer
     public class CostomerRepository(ServiceOnDbContext _context) : ICostomerRepository
     {
 
-        private readonly ServiceOnDbContext _context;
-
-
-        public Task<Result> add(UserDtos user, CancellationToken cancellation)
+        public async Task<Result> add(User user, CancellationToken cancellation)
         {
-            throw new NotImplementedException();
+            if (user is null)
+                return new Result(false, "Invalid User");
+
+            await _context.AddAsync(user);
+            await _context.SaveChangesAsync();
+
+            return new Result(true, "Done");
         }
 
-        public Task<float> DepositBalance(int id, float amount)
+        public async Task<float> DepositBalance(int id, float amount, CancellationToken cancellation)
         {
-            throw new NotImplementedException();
+            var user = await _context.Costomers.FirstOrDefaultAsync(x => x.Id == id);
+
+            user.Balance += amount;
+            await _context.SaveChangesAsync();
+            return user.Balance;
+
         }
 
-        public Task<List<User>>? GetAll(User user, CancellationToken cancellation)
+        public async Task<List<UserDtos>>? GetAll()
         {
-            throw new NotImplementedException();
+            return await _context.Costomers
+                .Select(x => new UserDtos
+                {
+                    Age = x.Age,
+                    Balance = x.Balance,
+                    LastName = x.LastName,
+                    Name = x.Name,
+                    Password = x.Password,
+                    UserName = x.UserName,
+
+                }).ToListAsync();
         }
 
-        public Task<User>? GetById(int id, CancellationToken cancellation)
+        public async Task<User>? GetById(int id, CancellationToken cancellation)
         {
-            throw new NotImplementedException();
+            return await _context.Costomers.FirstOrDefaultAsync(x => x.Id == id);
         }
 
-        public Task<float> WithrawBalance(int id, float amount)
+        public async Task<float> WithrawBalance(int id, float amount, CancellationToken cancellation)
         {
-            throw new NotImplementedException();
+            var user = await _context.Costomers.FirstOrDefaultAsync(x => x.Id == id);
+
+            user.Balance -= amount;
+            await _context.SaveChangesAsync();
+            return user.Balance;
         }
     }
 }

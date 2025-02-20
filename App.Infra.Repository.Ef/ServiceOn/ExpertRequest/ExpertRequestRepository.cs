@@ -2,29 +2,53 @@
 using App.Domain.Core.ServiceOn.Orders.Dtos;
 using App.Domain.Core.ServiceOn.Resualt;
 using App.Infra.Db.SqlServer.SqlServerDb;
+using Microsoft.EntityFrameworkCore;
 
 namespace App.Infra.Repository.Ef.ServiceOn.ExpertRequest
 {
     public class ExpertRequestRepository(ServiceOnDbContext _context) : IExpertRequestRepository
     {
-        public Task<Result> Add(ExpertRequestDto expertRequest, CancellationToken cancellationToken)
+        public async Task<Result> Add(Domain.Core.ServiceOn.Orders.Entities.ExpertRequest expertRequest, CancellationToken cancellationToken)
         {
-            throw new NotImplementedException();
+            if (expertRequest is null)
+                return new Result(false, "Invalid Request");
+
+            await _context.ExpertRequest.AddAsync(expertRequest);
+            await _context.SaveChangesAsync();
+
+            return new Result(true, "Done");
+
         }
 
-        public Task<Result> delete(ExpertRequestDto expertRequest, CancellationToken cancellationToken)
+        public async Task<Result> delete(int id, CancellationToken cancellationToken)
         {
-            throw new NotImplementedException();
+            var req = await _context.ExpertRequest.FirstOrDefaultAsync(x => x.Id == id);
+            if (req is null)
+                return new Result(false, "invalid");
+
+            _context.ExpertRequest.Remove(req);
+            await _context.SaveChangesAsync();
+            return new Result(true, " Done");
         }
 
-        public Task<List<ExpertRequestDto>> GetAll()
+        public async Task<List<ExpertRequestDto>> GetAll()
         {
-            throw new NotImplementedException();
+            return await _context.ExpertRequest
+                .Select(x => new ExpertRequestDto
+                {
+
+                    Description = x.Description,
+                    DueTime = x.DueTime,
+                    Id = x.Id,
+                    price = x.price,
+                    Title = x.Title,
+
+                }).ToListAsync();
         }
 
-        public Task<ExpertRequestDto> GetById(int id, CancellationToken cancellation)
+        public async Task<Domain.Core.ServiceOn.Orders.Entities.ExpertRequest> GetById(int id, CancellationToken cancellation)
         {
-            throw new NotImplementedException();
+            return await _context.ExpertRequest.FirstOrDefaultAsync(x => x.Id == id);
         }
     }
 }

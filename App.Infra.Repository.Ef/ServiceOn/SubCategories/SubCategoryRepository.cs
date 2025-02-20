@@ -2,29 +2,51 @@
 using App.Domain.Core.ServiceOn.Category.Dtos;
 using App.Domain.Core.ServiceOn.Resualt;
 using App.Infra.Db.SqlServer.SqlServerDb;
+using Microsoft.EntityFrameworkCore;
 
 namespace App.Infra.Repository.Ef.ServiceOn.SubCategories
 {
     public class SubCategoryRepository(ServiceOnDbContext _context) : ISubcategoryRepository
     {
-        public Task<Result> Add(SubCategoryDto subCategory, CancellationToken cancellation)
+        public async Task<Result> Add(Domain.Core.ServiceOn.Category.Entities.SubCategories subCategory, CancellationToken cancellation)
         {
-            throw new NotImplementedException();
+            if (subCategory is null)
+                return new Result(false, "Invalid");
+
+            await _context.SubCategories.AddAsync(subCategory);
+            await _context.SaveChangesAsync();
+
+            return new Result(true, "Done");
         }
 
-        public Task<Result> Delete(int id, CancellationToken cancellation)
+        public async Task<Result> Delete(int id, CancellationToken cancellation)
         {
-            throw new NotImplementedException();
+            var subCat = await _context.SubCategories.FirstOrDefaultAsync(x => x.SubCategoryId == id);
+
+            if (subCat is null)
+                return new Result(false, "NotFound ");
+
+            _context.SubCategories.Remove(subCat);
+            await _context.SaveChangesAsync();
+
+            return new Result(true, " Done");
         }
 
-        public Task<List<SubCategoryDto>> GetAll()
+        public async Task<List<SubCategoryDto>> GetAll()
         {
-            throw new NotImplementedException();
+            return await _context.SubCategories
+                .Select(x => new SubCategoryDto
+                {
+                    SubCategoryId = x.SubCategoryId,
+                    SubCategoryName = x.SubCategoryName
+
+                }).ToListAsync();
         }
 
-        public Task<SubCategoryDto> GetById(int id, CancellationToken cancellation)
+        public async Task<SubCategoryDto> GetById(int id, CancellationToken cancellation)
         {
-            throw new NotImplementedException();
+
+            return null;
         }
     }
 }

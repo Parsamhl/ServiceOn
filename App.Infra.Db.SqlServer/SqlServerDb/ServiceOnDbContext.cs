@@ -1,5 +1,6 @@
 ﻿using App.Domain.Core.ServiceOn.Address.Dtos;
 using App.Domain.Core.ServiceOn.Address.Entities;
+using App.Domain.Core.ServiceOn.AllService.Dtos;
 using App.Domain.Core.ServiceOn.AllService.Entities;
 using App.Domain.Core.ServiceOn.Base.Entities;
 using App.Domain.Core.ServiceOn.Category.Entities;
@@ -49,7 +50,7 @@ namespace App.Infra.Db.SqlServer.SqlServerDb
         public DbSet<Operator> Operators { get; set; }
         public DbSet<Categories> Categories { get; set; }
         public DbSet<SubCategories> SubCategories { get; set; }
-        public DbSet<AddressDto> Address { get; set; }
+        public DbSet<Address> Address { get; set; }
         public DbSet<AllService> AllService { get; set; }
         public DbSet<FeedBack> FeedBacks { get; set; }
         public DbSet<Image> Images { get; set; }

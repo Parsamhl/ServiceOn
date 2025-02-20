@@ -8,7 +8,7 @@ namespace App.Infra.Repository.Ef.ServiceOn.Address
 {
     public class AddressRepository(ServiceOnDbContext _context) : IAddressRepository
     {
-        public async Task<Result> Add(AddressDto address, CancellationToken cancellationToken)
+        public async Task<Result> Add(Domain.Core.ServiceOn.Address.Entities.Address address, CancellationToken cancellationToken)
         {
             if(address is null)
                 return new Result (false , "City Not found");
@@ -33,10 +33,16 @@ namespace App.Infra.Repository.Ef.ServiceOn.Address
 
         public async Task<List<AddressDto>> GetAll()
         {
-            return await _context.Address.AsNoTracking().ToListAsync();
+            return await _context.Address
+                .Select(x => new AddressDto
+                {
+                    Id = x.Id,
+                    City = x.City,
+
+                }).ToListAsync();
         }
 
-        public async Task<AddressDto> GetById(int id, CancellationToken cancellation)
+        public async Task<Domain.Core.ServiceOn.Address.Entities.Address> GetById(int id, CancellationToken cancellation)
         {
             return await _context.Address.AsNoTracking().FirstOrDefaultAsync(x => x.Id == id);
         }

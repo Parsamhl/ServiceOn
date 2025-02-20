@@ -1,4 +1,6 @@
 ﻿using App.Domain.Core.ServiceOn.Category.Dtos;
+using App.Domain.Core.ServiceOn.Category.Entities;
+using App.Domain.Core.ServiceOn.Resualt;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,8 +13,8 @@ namespace App.Domain.Core.ServiceOn.Category.Data.Repository
     {
 
         public Task<List<CategoryDto>> GetAll();
-        public Task<CategoryDto> GetById(int id , CancellationToken cancellation);
-        public Task<CategoryDto> Add(CategoryDto categoryDto , CancellationToken cancellation);
-        public Task<CategoryDto> Delete(int id , CancellationToken cancellation);
+        public Task<Categories> GetById(int id , CancellationToken cancellation);
+        public Task<Result> Add(Categories category , CancellationToken cancellation);
+        public Task<Result> Delete(int id , CancellationToken cancellation);
     }
 }

@@ -7,7 +7,6 @@ namespace App.Domain.Core.ServiceOn.Orders.Entities
 {
     public class CostomerRequest
     {
-
         public int Id { get; set; }
         public string? Title { get; set; }
         public string? Description { get; set; }
@@ -15,13 +14,13 @@ namespace App.Domain.Core.ServiceOn.Orders.Entities
         public DateTime? DueTime { get; set; }
 
         public StatusEnum RequestStatus { get; set; } = StatusEnum.Waiting;
-        public Expert ChoosenExpert { get; set; } // kasi ke darkhastesh ghabol shode
+        public Expert? ChoosenExpert { get; set; } // kasi ke darkhastesh ghabol shode
         public int? ExpertId { get; set; }
 
         public Costomer? Costomer { get; set; }
         public int? CostomerId { get; set; }
 
-        public List<ExpertRequest> RecivedRequest { get; set; }
+        public List<ExpertRequest>? RecivedRequest { get; set; }
 
         public Address.Entities.Address? RequestAdderss {  get; set; }    
         public int? AddressId{ get; set; }

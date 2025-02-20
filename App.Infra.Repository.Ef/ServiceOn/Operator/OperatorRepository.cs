@@ -2,29 +2,52 @@
 using App.Domain.Core.ServiceOn.User.Data.Repository;
 using App.Domain.Core.ServiceOn.User.Dtos;
 using App.Infra.Db.SqlServer.SqlServerDb;
+using Microsoft.EntityFrameworkCore;
 
 namespace App.Infra.Repository.Ef.ServiceOn.Operator
 {
     public class OperatorRepository(ServiceOnDbContext _context) : IOperatorRepository
     {
-        public Task<Result> add(UserDtos user, CancellationToken cancellation)
+        public async Task<Result> add(Domain.Core.ServiceOn.User.Entities.Operator opt, CancellationToken cancellation)
         {
-            throw new NotImplementedException();
+            if (opt is null)
+                return new Result(false, " invalid");
+
+            await _context.Operators.AddAsync(opt);
+            await _context.SaveChangesAsync();
+
+            return new Result(true, "Done");
+
         }
 
-        public Task<Result> Delete(UserDtos user, CancellationToken cancellation)
+        public async Task<Result> Delete(int id, CancellationToken cancellation)
         {
-            throw new NotImplementedException();
+            var opt = await _context.Operators.FirstOrDefaultAsync(x => x.OperatorId == id);
+            if (opt is null)
+                return new Result(false, "Operator Not found");
+
+            _context.Operators.Remove(opt);
+            await _context.SaveChangesAsync();
+            return new Result(true, "Done");
         }
 
-        public Task<List<UserDtos>> GetAll()
+        public async Task<List<OperatorDto>> GetAll()
         {
-            throw new NotImplementedException();
+            return await _context.Operators
+                .Select(x => new OperatorDto
+                {
+                    OperatorId = x.OperatorId,
+                    LastName = x.LastName,
+                    Name = x.Name,
+                    UserName = x.UserName
+
+
+                }).ToListAsync();
         }
 
-        public Task<Domain.Core.ServiceOn.User.Entities.Operator> GetById(int id, CancellationToken cancellation)
+        public async Task<Domain.Core.ServiceOn.User.Entities.Operator> GetById(int id, CancellationToken cancellation)
         {
-            throw new NotImplementedException();
+            return await _context.Operators.AsNoTracking().FirstOrDefaultAsync(x => x.OperatorId == id);
         }
     }
 }

@@ -4,7 +4,6 @@ using App.Domain.Core.ServiceOn.Resualt;
 using App.Infra.Db.SqlServer.SqlServerDb;
 using Microsoft.EntityFrameworkCore;
 
-
 namespace App.Infra.Repository.Ef.ServiceOn.Base
 {
     public class ImageRepository(ServiceOnDbContext _context) : IImageRepository
@@ -31,6 +30,11 @@ namespace App.Infra.Repository.Ef.ServiceOn.Base
             await _context.SaveChangesAsync();
 
             return new Result(true, "Success");
+        }
+
+        public Task<List<Image>>? GetAll(Image image, CancellationToken cancellation)
+        {
+            return _context.Images.AsNoTracking().ToListAsync();
         }
 
         public async Task<Image>? GetById(int id, CancellationToken cancellation)

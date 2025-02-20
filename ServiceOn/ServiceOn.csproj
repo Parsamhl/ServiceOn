@@ -7,10 +7,16 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="9.0.1">
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="9.0.2">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Views\Home\FeedBack\" />
+    <Folder Include="Views\Oreders\" />
+    <Folder Include="Views\User\" />
   </ItemGroup>
 
   <ItemGroup>
@@ -18,12 +24,6 @@
     <ProjectReference Include="..\App.Infra.Db.SqlServer\App.Infra.Db.SqlServer.csproj" />
     <ProjectReference Include="..\App.Infra.Repository.Ef\App.Infra.Repository.Ef.csproj" />
     <ProjectReference Include="..\App.Packages\App.Packages.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Views\Home\FeedBack\" />
-    <Folder Include="Views\Oreders\" />
-    <Folder Include="Views\User\" />
   </ItemGroup>
 
 </Project>
