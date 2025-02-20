@@ -17,9 +17,7 @@
     <Folder Include="ServiceOn\FeedBack\Service\" />
     <Folder Include="ServiceOn\Orders\AppService\" />
     <Folder Include="ServiceOn\Orders\Service\" />
-    <Folder Include="ServiceOn\User\AppService\" />
     <Folder Include="ServiceOn\User\Enums\" />
-    <Folder Include="ServiceOn\User\Service\" />
   </ItemGroup>
 
 </Project>
