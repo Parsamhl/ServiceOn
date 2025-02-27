@@ -10,6 +10,7 @@
     <Folder Include="Views\FeedBack\" />
     <Folder Include="Views\Costomer\" />
     <Folder Include="Views\Expert\" />
+    <Folder Include="Views\Requests\" />
     <Folder Include="Views\Oreders\" />
     <Folder Include="Views\User\" />
   </ItemGroup>
