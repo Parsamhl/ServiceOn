@@ -1,5 +1,6 @@
 ﻿
 using App.Domain.Core.ServiceOn.User.Entities;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
@@ -10,7 +11,7 @@ namespace App.Infra.Db.SqlServer.Configuration.OperatorConfiguration
         public void Configure(EntityTypeBuilder<Operator> builder)
         {
             builder.ToTable("Operators");
-            builder.HasKey(x=> x.OperatorId);
+            builder.HasKey(x => x.OperatorId);
 
             builder.HasData(new List<Operator>()
             {
@@ -19,6 +20,12 @@ namespace App.Infra.Db.SqlServer.Configuration.OperatorConfiguration
                 , new Operator() {OperatorId = 2 ,Name = "Gholam" , LastName = " Masoumi" , UserName = " gholamM12" , Password = "MasoumiGh"}
 
             });
+
+
+
         }
     }
 }
+
+        
+      

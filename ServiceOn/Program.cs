@@ -20,6 +20,8 @@ using App.Infra.Repository.Ef.ServiceOn.SubCategories;
 using App.Infra.Repository.Ef.ServiceOn.Allservice;
 using App.Infra.Repository.Ef.ServiceOn.FeedBack;
 using App.Infra.Repository.Ef.ServiceOn.Address;
+using App.Domain.Core.ServiceOn.User.Entities;
+using System;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
@@ -50,6 +52,19 @@ builder.Services.AddScoped<IAllServicerepository, AllServicerepository>();
 builder.Services.AddScoped<IFeedBackRepository, FeedBackRepository>();
 builder.Services.AddScoped<IAddressRepository, AddressRepository>();
 
+builder.Services.AddIdentity<User, IdentityRole<int>>(options =>
+{
+    options.SignIn.RequireConfirmedAccount = false;
+    options.Password.RequireDigit = false;
+    options.Password.RequiredLength = 6;
+    options.Password.RequireNonAlphanumeric = false;
+    options.Password.RequireUppercase = false;
+    options.Password.RequireLowercase = false;
+})
+    .AddRoles<IdentityRole<int>>()
+    .AddEntityFrameworkStores<ServiceOnDbContext>();
+    //.AddDefaultTokenProviders();
+
 
 var app = builder.Build();
 
@@ -66,7 +81,7 @@ app.UseHttpsRedirection();
 
 app.UseRouting();
 
-
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllerRoute(
